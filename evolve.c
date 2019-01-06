@@ -47,6 +47,9 @@ PPM_IMAGE *evolve_image(const PPM_IMAGE *image, int num_generations, int populat
 		mutate_population(individuals, population_size, rate);
 		comp_fitness_population(image->data, individuals, population_size);
 		qsort(individuals, population_size, sizeof(Individual), cmpfunc);
+		if (rate >= 0.25e-2) {
+			rate -= 0.000025;
+		}
 	}
 	
 	/* Allocates memory and creates a new PPM Image and then
