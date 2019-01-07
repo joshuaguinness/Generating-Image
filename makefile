@@ -13,7 +13,7 @@ escher:
 	./evolve me.ppm me2.ppm 100000 65 15e-2
 mcmaster:
 	make; make
-	./evolve mcmaster.ppm mcmaster2.ppm 40000 500 15e-2
+	./evolve mcmaster.ppm mcmaster2.ppm 30000 500 15e-2
 
 clean:
 	rm  *.o $(PROGRAM_NAME) *~ gmon.out

@@ -51,6 +51,9 @@ PPM_IMAGE *evolve_image(const PPM_IMAGE *image, int num_generations, int populat
 		/* Higher rate, aka more mutated pixels earlier on then 
 		decreased rate as the program runs making the fitness lower
 		then if the rate was static */
+
+		/* The following if statement was designed by Hassan Jasim
+		and used with permission */
 		if (rate >= 0.25e-2) {
 			rate -= 0.000025;
 		}
