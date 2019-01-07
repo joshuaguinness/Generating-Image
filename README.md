@@ -10,6 +10,8 @@ The algorithm I used, specifically seen in the evolve.c file, starts with a high
 
 The images produced by the genetic algorithm, and the goal images are seen below.  
 
+![alt text](https://github.com/joshuaguinness/Generating-Image/master/me2.jpg)
+
 ## What I Learned
 
 ## To Run
