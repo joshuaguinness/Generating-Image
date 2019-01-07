@@ -47,8 +47,10 @@ PPM_IMAGE *evolve_image(const PPM_IMAGE *image, int num_generations, int populat
 		mutate_population(individuals, population_size, rate);
 		comp_fitness_population(image->data, individuals, population_size);
 		qsort(individuals, population_size, sizeof(Individual), cmpfunc);
-		//printf("%d : ", i);
-		//printf("%lf\n", individuals->fitness);
+
+		/* Higher rate, aka more mutated pixels earlier on then 
+		decreased rate as the program runs making the fitness lower
+		then if the rate was static */
 		if (rate >= 0.25e-2) {
 			rate -= 0.000025;
 		}
