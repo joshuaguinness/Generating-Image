@@ -34,9 +34,13 @@ PPM_IMAGE *evolve_image(const PPM_IMAGE *image, int num_generations, int populat
 	/* Compute the fitness of each individual */
 	comp_fitness_population(image->data, individuals, population_size);
 
+	double bestFitness = individuals->fitness;
+	
 	/* Sort the individuals in non-decreasing order 
 	of fitness */
 	qsort(individuals, population_size, sizeof(Individual), cmpfunc);
+
+	write_ppm("1", );
 
 	/* Loop through generation number of times, each time
 	crossing over, mutating, comparing the fitness, then
@@ -57,6 +61,9 @@ PPM_IMAGE *evolve_image(const PPM_IMAGE *image, int num_generations, int populat
 		if (rate >= 0.25e-2) {
 			rate -= 0.000025;
 		}
+
+		if (indi)
+
 	}
 	
 	/* Allocates memory and creates a new PPM Image and then
