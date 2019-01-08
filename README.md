@@ -28,7 +28,7 @@ A new thing I learned while working on this program is how to profile the execut
 
 A possible next step to take to make the images even clearer is to design an algorithm that will adjust the rate to be the best number at the right time based on the current number of generations
 
-### To Run
+## To Run
 
 To run with the bird photo, type "make escher." To run with the McMaster logo type "make mcmaster."
 
