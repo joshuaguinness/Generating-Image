@@ -12,6 +12,8 @@
 /* Prototype for compare function */
 int cmpfunc(const void *a, const void *b);
 
+void ImagePrint(Individual *individual, int imageCounter);
+
 /* Evolves the population */
 PPM_IMAGE *evolve_image(const PPM_IMAGE *image, int num_generations, int population_size, double rate) {
 
@@ -34,13 +36,18 @@ PPM_IMAGE *evolve_image(const PPM_IMAGE *image, int num_generations, int populat
 	/* Compute the fitness of each individual */
 	comp_fitness_population(image->data, individuals, population_size);
 
-	double bestFitness = individuals->fitness;
-	
+	/* Gets the first initial fitness and sets the image counter to 1 */
+	double currentFitness = individuals->fitness;
+	int imageCounter = 1000;
+
 	/* Sort the individuals in non-decreasing order 
 	of fitness */
 	qsort(individuals, population_size, sizeof(Individual), cmpfunc);
 
-	write_ppm("1", );
+	/* Outputs the first image with file name 1 and 
+	adds one to the image counter */
+	ImagePrint(individuals, imageCounter);
+	imageCounter++;
 
 	/* Loop through generation number of times, each time
 	crossing over, mutating, comparing the fitness, then
@@ -61,9 +68,14 @@ PPM_IMAGE *evolve_image(const PPM_IMAGE *image, int num_generations, int populat
 		if (rate >= 0.25e-2) {
 			rate -= 0.000025;
 		}
+		
+		if ((currentFitness - individuals->fitness) >= 100.0) {
+			currentFitness = individuals->fitness;
+			ImagePrint(individuals, imageCounter);
+			imageCounter++;
+		}
 
-		if (indi)
-
+		printf("%d\n", i);
 	}
 	
 	/* Allocates memory and creates a new PPM Image and then
@@ -112,4 +124,31 @@ int cmpfunc(const void *a, const void *b)
 	Individual *elementB = (Individual *)b;
 
 	return (elementA->fitness - elementB->fitness);
+}
+
+/* Prints the image */
+void ImagePrint(Individual *individual, int imageCounter) {
+
+	/* Allocates memory and creates a new PPM Image and then
+	takes the Individual with the lowest fitness and
+	puts the PPM_IMAGE values into the new PPM Image */
+	PPM_IMAGE *finalImage = malloc(sizeof(PPM_IMAGE));
+	PIXEL *array = malloc(sizeof(PIXEL[individual->image.width*individual->image.height]));
+	for (int i = 0; i < (individual->image.width)*(individual->image.height); i++) {
+		(array + i)->r = (individual->image.data + i)->r;
+		(array + i)->g = (individual->image.data + i)->g;
+		(array + i)->b = (individual->image.data + i)->b;
+	}
+	finalImage->data = array;
+	finalImage->width = individual->image.width;
+	finalImage->height = individual->image.height;
+	finalImage->max_color = individual->image.max_color;
+
+	/* Converts the int image counter to a string */
+	char str[5];
+	sprintf(str, "%d", imageCounter);
+
+	write_ppm(str, finalImage);
+
+	free_image(finalImage);
 }
