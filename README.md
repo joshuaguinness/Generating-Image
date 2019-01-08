@@ -20,13 +20,15 @@ The two ways I grew in my C programming strength while doing this assignment wer
 
 Due to using structures, memory allocation and then de-allocation was needed so I got further practise in using them. After running my program through valgrind, it returned with no memory leaks.
 
-A new thing I learned while working on this program is how to profile my execution.
+A new thing I learned while working on this program is how to profile the execution of the program. I attached a screenshot below of it. The lines of code that take up the most running time are because either they are run a lot (instead nested for loops), they access data through pointers, and/or perform multiplication operations.
+
+![Test](https://github.com/joshuaguinness/Generating-Image/blob/master/Profile-Execution.png)
 
 ## Possible Next Steps
 
 A possible next step to take to make the images even clearer is to design an algorithm that will adjust the rate to be the best number at the right time based on the current number of generations
 
-## To Run
+### To Run
 
 To run with the bird photo, type "make escher." To run with the McMaster logo type "make mcmaster."
 
