@@ -16,7 +16,9 @@ The goal images, then the images produced by the genetic algorithm are seen belo
 
 To view how the transition looks, check out the youtube video here: https://www.youtube.com/watch?v=jxaMN8UhF60, or the gif below.
 
+![Test](https://github.com/joshuaguinness/Generating-Image/blob/master/Generating-Image.gif)
 
+The video was created by outputting an image every 100 fitness. I then ran a bash script to convert all the images to .jpg's, then put them together to make a video!
 
 ## What I Learned
 
