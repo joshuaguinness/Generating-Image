@@ -36,9 +36,11 @@ PPM_IMAGE *evolve_image(const PPM_IMAGE *image, int num_generations, int populat
 	/* Compute the fitness of each individual */
 	comp_fitness_population(image->data, individuals, population_size);
 
-	/* Gets the first initial fitness and sets the image counter to 1 */
+	/* Gets the first initial fitness and sets the image counter to 1000 */
+	/*
 	double currentFitness = individuals->fitness;
 	int imageCounter = 1000;
+	*/
 
 	/* Sort the individuals in non-decreasing order 
 	of fitness */
@@ -46,8 +48,10 @@ PPM_IMAGE *evolve_image(const PPM_IMAGE *image, int num_generations, int populat
 
 	/* Outputs the first image with file name 1 and 
 	adds one to the image counter */
+	/*
 	ImagePrint(individuals, imageCounter);
 	imageCounter++;
+	*/
 
 	/* Loop through generation number of times, each time
 	crossing over, mutating, comparing the fitness, then
@@ -69,13 +73,14 @@ PPM_IMAGE *evolve_image(const PPM_IMAGE *image, int num_generations, int populat
 			rate -= 0.000025;
 		}
 		
+		// Code that will print out the image ever 100 fitness 
+		/*
 		if ((currentFitness - individuals->fitness) >= 100.0) {
 			currentFitness = individuals->fitness;
 			ImagePrint(individuals, imageCounter);
 			imageCounter++;
 		}
-
-		printf("%d\n", i);
+		*/
 	}
 	
 	/* Allocates memory and creates a new PPM Image and then
@@ -127,11 +132,12 @@ int cmpfunc(const void *a, const void *b)
 }
 
 /* Prints the image */
+/*
 void ImagePrint(Individual *individual, int imageCounter) {
 
 	/* Allocates memory and creates a new PPM Image and then
 	takes the Individual with the lowest fitness and
-	puts the PPM_IMAGE values into the new PPM Image */
+	puts the PPM_IMAGE values into the new PPM Image
 	PPM_IMAGE *finalImage = malloc(sizeof(PPM_IMAGE));
 	PIXEL *array = malloc(sizeof(PIXEL[individual->image.width*individual->image.height]));
 	for (int i = 0; i < (individual->image.width)*(individual->image.height); i++) {
@@ -144,7 +150,7 @@ void ImagePrint(Individual *individual, int imageCounter) {
 	finalImage->height = individual->image.height;
 	finalImage->max_color = individual->image.max_color;
 
-	/* Converts the int image counter to a string */
+	// Converts the int image counter to a string
 	char str[5];
 	sprintf(str, "%d", imageCounter);
 
@@ -152,3 +158,4 @@ void ImagePrint(Individual *individual, int imageCounter) {
 
 	free_image(finalImage);
 }
+*/
