@@ -1,5 +1,5 @@
 /*
-	Programmed by:
+	Programmed by: 
 	Joshua Guinness
 	November 29, 2018
 	for the purpose of completing Assignment 4 for 2SO3
