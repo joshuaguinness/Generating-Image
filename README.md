@@ -10,9 +10,9 @@ The algorithm I used, specifically seen in the evolve.c file, starts with a high
 
 The goal images, then the images produced by the genetic algorithm are seen below.
 
-![Test](https://github.com/joshuaguinness/Generating-Image/blob/master/me.jpg)  ![Test](https://github.com/joshuaguinness/Generating-Image/blob/master/me2.jpg)
+![Original-Fish](https://github.com/joshuaguinness/Generating-Image/blob/master/me.jpg)  ![Generated-Fish](https://github.com/joshuaguinness/Generating-Image/blob/master/me2.jpg)
 
-![Test](https://github.com/joshuaguinness/Generating-Image/blob/master/mcmaster.jpg)  ![Test](https://github.com/joshuaguinness/Generating-Image/blob/master/mcmaster2.jpg)
+![Original-Logo](https://github.com/joshuaguinness/Generating-Image/blob/master/mcmaster.jpg)  ![Generated-Logo](https://github.com/joshuaguinness/Generating-Image/blob/master/mcmaster2.jpg)
 
 To view how the transition looks, check out the youtube video here: https://www.youtube.com/watch?v=jxaMN8UhF60, or the gif below.
 
@@ -28,7 +28,7 @@ Due to using structures, memory allocation and then de-allocation was needed so 
 
 A new thing I learned while working on this program is how to profile the execution of the program. I attached a screenshot below of it. The lines of code that take up the most running time are because either they are run a lot (instead nested for loops), they access data through pointers, and/or perform multiplication operations.
 
-![Test](https://github.com/joshuaguinness/Generating-Image/blob/master/Profile-Execution.png)
+<img src="https://github.com/joshuaguinness/Generating-Image/blob/master/Profile-Execution.png" width="696" height="833" />
 
 ## To Run
 
